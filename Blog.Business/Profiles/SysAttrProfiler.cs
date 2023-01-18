@@ -17,7 +17,7 @@ namespace Blog.Business.Profiles
     {
         public SysAttrProfiler()
         {
-            CreateMap<sys_attrs, ColumnOptions>()
+            CreateMap<SysAttrs, ColumnOptions>()
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(e => e.code))
                 .ForMember(dest => dest.LogicalName, opt => opt.MapFrom(e => string.IsNullOrEmpty(e.name) ? e.code : e.name))
                 .ForMember(dest => dest.Type, opt => opt.MapFrom(e => e.attr_type))

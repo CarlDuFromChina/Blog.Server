@@ -97,7 +97,7 @@ namespace Blog.Business
 
             app.UseORM(options =>
             {
-                options.EntityClassNameCase = NameCase.UnderScore;
+                options.EntityClassNameCase = NameCase.Pascal;
                 options.AutoGenerate = true;
             });
 
