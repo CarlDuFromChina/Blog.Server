@@ -6,6 +6,8 @@ using Newtonsoft.Json;
 using Sixpence.ORM.Models;
 using Blog.Business.Service;
 using Blog.Business.Entity;
+using Sixpence.Web.Cache;
+using Blog.Business.SysConfig;
 
 namespace Blog.Business.Controller
 {
@@ -35,6 +37,12 @@ namespace Blog.Business.Controller
             int.TryParse(pageSize, out var size);
             int.TryParse(pageIndex, out var index);
             return new CommentsService().GetDataList(_searchList, orderBy, size, index, viewId, searchValue);
+        }
+
+        [HttpGet("comment_strategy")]
+        public object GetCommentStrategy()
+        {
+            return SysConfigCache.GetValue<CommentStrategyConfig>();
         }
     }
 }

@@ -9,6 +9,7 @@ using Blog.Business.Service;
 using Blog.Business.Model;
 using Blog.Business.Entity;
 using Sixpence.Web.Entity;
+using Newtonsoft.Json;
 
 namespace Blog.Business.Controller
 {
@@ -103,6 +104,20 @@ namespace Blog.Business.Controller
         public UserInfo GetIndexUser()
         {
             return new PostService().GetIndexUser();
+        }
+
+        [HttpPost("save")]
+        public override string CreateOrUpdateData(Post entity)
+        {
+            var id = base.CreateOrUpdateData(entity);
+            return JsonConvert.SerializeObject(id);
+        }
+
+        [HttpPost]
+        public override string CreateData(Post entity)
+        {
+            var id = base.CreateData(entity);
+            return JsonConvert.SerializeObject(id);
         }
     }
 }

@@ -105,6 +105,8 @@ namespace Blog.Business
 
             app.UseSysRole();
 
+            app.UseSysConfig();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Blog.Business.Entity;
 using Blog.Business.Service;
+using Newtonsoft.Json;
 
 namespace Blog.Business.Controller
 {
@@ -31,6 +32,20 @@ namespace Blog.Business.Controller
         public IList<Draft> GetDrafts()
         {
             return new DraftService().GetDrafts();
+        }
+
+        [HttpPost]
+        public override string CreateData(Draft entity)
+        {
+            var id = base.CreateData(entity);
+            return JsonConvert.SerializeObject(id);
+        }
+
+        [HttpPost("save")]
+        public override string CreateOrUpdateData(Draft entity)
+        {
+            var id = base.CreateOrUpdateData(entity);
+            return JsonConvert.SerializeObject(id);
         }
     }
 }
