@@ -36,32 +36,65 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup>
+	
+  <!--Windows-->
+  <ItemGroup Condition="'$(OS)'=='Windows_NT'">
     <Content Update="appsettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="C:\Users\Karl\.nuget\packages\sixpence.web\1.5.1\contentFiles\any\netcoreapp3.1\version\Template\2022062001-sys_role.csv">
+    <Content Update="$(UserProfile)\.nuget\packages\sixpence.web\1.5.1\contentFiles\any\netcoreapp3.1\version\Template\2022062001-sys_role.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="C:\Users\Karl\.nuget\packages\sixpence.web\1.5.1\contentFiles\any\netcoreapp3.1\version\Template\2022062002-auth_user.csv">
+    <Content Update="$(UserProfile)\.nuget\packages\sixpence.web\1.5.1\contentFiles\any\netcoreapp3.1\version\Template\2022062002-auth_user.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="C:\Users\Karl\.nuget\packages\sixpence.web\1.5.1\contentFiles\any\netcoreapp3.1\version\Template\2022062003-user_info.csv">
+    <Content Update="$(UserProfile)\.nuget\packages\sixpence.web\1.5.1\contentFiles\any\netcoreapp3.1\version\Template\2022062003-user_info.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="C:\Users\Karl\.nuget\packages\sixpence.web\1.5.1\contentFiles\any\netcoreapp3.1\version\Template\2022062004-sys_menu.csv">
+    <Content Update="$(UserProfile)\.nuget\packages\sixpence.web\1.5.1\contentFiles\any\netcoreapp3.1\version\Template\2022062004-sys_menu.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="C:\Users\Karl\.nuget\packages\sixpence.web\1.5.1\contentFiles\any\netcoreapp3.1\version\Template\2022062005-sys_config.csv">
+    <Content Update="$(UserProfile)\.nuget\packages\sixpence.web\1.5.1\contentFiles\any\netcoreapp3.1\version\Template\2022062005-sys_config.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="C:\Users\Karl\.nuget\packages\sixpence.web\1.5.1\contentFiles\any\netcoreapp3.1\version\Template\2022062006-sys_param.csv">
+    <Content Update="$(UserProfile)\.nuget\packages\sixpence.web\1.5.1\contentFiles\any\netcoreapp3.1\version\Template\2022062006-sys_param.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="C:\Users\Karl\.nuget\packages\sixpence.web\1.5.1\contentFiles\any\netcoreapp3.1\version\Template\2022062007-sys_paramgroup.csv">
+    <Content Update="$(UserProfile)\.nuget\packages\sixpence.web\1.5.1\contentFiles\any\netcoreapp3.1\version\Template\2022062007-sys_paramgroup.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="C:\Users\Karl\.nuget\packages\sixpence.web\1.5.1\contentFiles\any\netcoreapp3.1\version\Template\2022062008-quartz.sql">
+    <Content Update="$(UserProfile)\.nuget\packages\sixpence.web\1.5.1\contentFiles\any\netcoreapp3.1\version\Template\2022062008-quartz.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+	<!--Mac & Linux-->
+  <ItemGroup Condition="'$(OS)'!='Windows_NT'">
+    <Content Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="$(UserProfile)\.nuget\packages\sixpence.web\1.5.1\contentFiles\any\netcoreapp3.1\version\Template\2022062001-sys_role.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="$(UserProfile)\.nuget\packages\sixpence.web\1.5.1\contentFiles\any\netcoreapp3.1\version\Template\2022062002-auth_user.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="$(UserProfile)\.nuget\packages\sixpence.web\1.5.1\contentFiles\any\netcoreapp3.1\version\Template\2022062003-user_info.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="$(UserProfile)\.nuget\packages\sixpence.web\1.5.1\contentFiles\any\netcoreapp3.1\version\Template\2022062004-sys_menu.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="$(UserProfile)\.nuget\packages\sixpence.web\1.5.1\contentFiles\any\netcoreapp3.1\version\Template\2022062005-sys_config.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="$(UserProfile)\.nuget\packages\sixpence.web\1.5.1\contentFiles\any\netcoreapp3.1\version\Template\2022062006-sys_param.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="$(UserProfile)\.nuget\packages\sixpence.web\1.5.1\contentFiles\any\netcoreapp3.1\version\Template\2022062007-sys_paramgroup.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="$(UserProfile)\.nuget\packages\sixpence.web\1.5.1\contentFiles\any\netcoreapp3.1\version\Template\2022062008-quartz.sql">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
