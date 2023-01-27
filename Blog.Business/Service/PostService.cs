@@ -187,23 +187,6 @@ WHERE
         }
 
         /// <summary>
-        /// 获取创作记录日历
-        /// </summary>
-        /// <returns></returns>
-        public IEnumerable<PostActivityModel> GetActivity()
-        {
-            var sql = @"
-SELECT
-	to_char(created_at, 'YYYY-MM-DD') AS created_date,
-	count(1) AS count
-FROM post
-WHERE created_at > to_date(to_char(now(), 'YYYY-01-01'), 'YYYY-MM-DD') AND created_at < to_date(to_char(now(), 'YYYY-12-31'), 'YYYY-MM-DD')
-GROUP BY to_char(created_at, 'YYYY-MM-DD')
-";
-            return Manager.Query<PostActivityModel>(sql);
-        }
-
-        /// <summary>
         /// 导出Markdown
         /// </summary>
         /// <param name="id"></param>

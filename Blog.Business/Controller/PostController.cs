@@ -83,16 +83,6 @@ namespace Blog.Business.Controller
         }
 
         /// <summary>
-        /// 获取创作记录日历
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet("activity_records"), AllowAnonymous]
-        public IEnumerable<PostActivityModel> GetActivity()
-        {
-            return new PostService().GetActivity();
-        }
-
-        /// <summary>
         /// 导出Markdown
         /// </summary>
         /// <param name="id"></param>
