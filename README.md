@@ -4,7 +4,7 @@
 
 ## Package
 
-+ Sixpence.Web@1.4.0
++ Sixpence.Web@1.5.3
   + Sixpence.ORM@2.2.0
   + Sixpence.Common@1.3.0
 
