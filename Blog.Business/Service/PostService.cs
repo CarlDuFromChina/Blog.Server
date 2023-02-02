@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using Sixpence.Common;
 using Sixpence.Common.IoC;
-using Sixpence.ORM.Entity;
 using Sixpence.ORM.EntityManager;
 using Blog.Business.Entity;
 using Blog.Business.Model;
@@ -41,8 +40,6 @@ SELECT
 	post.is_series,
 	post.tags,
 	COALESCE(post.reading_times, 0) reading_times,
-	COALESCE((SELECT COUNT(1) FROM upvote WHERE objectid = post.id), 0) upvote_times,
-	COALESCE((SELECT COUNT(1) FROM comments WHERE objectid = post.id), 0) comment_count,
 	post.surfaceid,
 	post.surface_url,
 	post.brief,
@@ -100,8 +97,6 @@ WHERE 1=1 AND post.is_show = true";
             {
                 var data = base.GetData(id);
                 var paramList = new Dictionary<string, object>() { { "@id", id } };
-                data.upvote_times = Manager.QueryCount("SELECT COUNT(1) FROM upvote WHERE objectid = @id", paramList);
-                data.comment_count = Manager.QueryCount("SELECT COUNT(1) FROM comments WHERE objectid = @id", paramList);
                 Manager.Execute("UPDATE post SET reading_times = COALESCE(reading_times, 0) + 1 WHERE id = @id", paramList);
                 return data;
             });
@@ -155,35 +150,6 @@ WHERE
 	parentid = '7EB12A4C-2698-4A8B-956D-B2467BE1D886'
 ";
             return Manager.DbClient.Query<string>(sql);
-        }
-
-        /// <summary>
-        /// 点赞
-        /// </summary>
-        /// <param name="postid"></param>
-        public bool Upvote(string postid)
-        {
-            var data = Manager.QueryFirst<Upvote>("SELECT * FROM upvote WHERE objectid = @id", new Dictionary<string, object>() { { "@id", postid } });
-            if (data != null)
-            {
-                Manager.Delete(data);
-                return false;
-            }
-            else
-            {
-                var post = Manager.QueryFirst<Post>(postid);
-                data = new Upvote()
-                {
-                    id = Guid.NewGuid().ToString(),
-                    objectId = post.id,
-                    objectid_name = post.title,
-                    object_ownerid = post.created_by,
-                    object_ownerid_name = post.created_by_name,
-                    object_type = "post"
-                };
-                Manager.Create(data);
-                return true;
-            }
         }
 
         /// <summary>

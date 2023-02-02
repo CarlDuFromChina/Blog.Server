@@ -62,16 +62,6 @@ namespace Blog.Business.Controller
         }
 
         /// <summary>
-        /// 点赞
-        /// </summary>
-        /// <param name="id"></param>
-        [HttpGet("upvote")]
-        public bool Upvote(string id)
-        {
-            return new PostService().Upvote(id);
-        }
-
-        /// <summary>
         /// 同步博客
         /// </summary>
         /// <param name="id">博客id</param>
