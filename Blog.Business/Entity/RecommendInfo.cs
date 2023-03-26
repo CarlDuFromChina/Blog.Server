@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Blog.Business.Entity
 {
-    [Entity("recommend_info", "推荐信息", false)]
+    [Entity("recommend_info", "推荐信息")]
     public class RecommendInfo : BaseEntity
     {
         /// <summary>

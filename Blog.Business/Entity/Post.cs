@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 
 namespace Blog.Business.Entity
 {
-    [Entity("post", "博客", false)]
+    [Entity("post", "博客")]
     public partial class Post : BaseEntity
     {
         /// <summary>

@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 
 namespace Blog.Business.Entity
 {
-    [Entity("category", "博客分类", false)]
+    [Entity("category", "博客分类")]
     public partial class Category : BaseEntity
     {
         /// <summary>

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Blog.Business.Entity
 {
-    [Entity("draft", "草稿", false)]
+    [Entity("draft", "草稿")]
     public partial class Draft : BaseEntity
     {
         /// <summary>

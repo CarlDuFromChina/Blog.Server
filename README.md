@@ -1,12 +1,12 @@
 # Blog.Server
 
-> 一个基于 .net core 3.1 的博客后端项目
+> 一个基于 .net 6.0 的博客后端项目
 
 ## Package
 
-+ Sixpence.Web@1.5.3
-  + Sixpence.ORM@2.2.0
-  + Sixpence.Common@1.3.0
++ Sixpence.Web@2.1.0
+  + Sixpence.ORM@3.1.0
+  + Sixpence.Common@2.0.0
 
 ## Deploy
 
